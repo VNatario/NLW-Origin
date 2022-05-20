@@ -6,6 +6,8 @@
     box-sizing: border-box;
     /* O tamanho da caixa: apartir da borda da caixa */
 
+    padding: 0;
+
 }
 
 :root{
@@ -27,12 +29,22 @@ body {
     font-size: 1.6rem;
 
     text-align: center;
+
+    overflow: overlay;
+}
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 .wrapper{
     width: 37.5rem;
     margin-inline: auto;
     padding-inline: 2.4rem;
+}
+
+ul {
+    list-style: none;
 }
 
 /* HEADER */
@@ -43,7 +55,7 @@ header {
 
 header::before{
     content: '';
-    width: 100vw;
+    width: 100%;
     height: calc(108rem + var(--nav-height));
     display: block;
     background-color: var(--brand-green-light);
@@ -176,6 +188,110 @@ nav.scroll svg:nth-child(1) path{
 
 }
 
-nav.scroll svg:nth-child(2) path{
+nav.scroll button path{
+    stroke: white;
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* MENU EXPANDED */
+body.menu-expanded {
+    overflow: hidden;
+    /* overflow = o que esta transbordando */
+}
+
+body.menu-expanded > :not(nav) {
+    display: none;
+    /* > ==> primeiro nível
+        Para o primeiro nivel todos vão sumir exceto nav
+    */
+}
+
+.menu,
+.close-menu,
+ body.menu-expanded .open-menu {
+    opacity: 0;
+    visibility: hidden;
+    /* visibilidade escondida faz com que não consiga clickar no item */
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-expanded .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--primary-color);
+
+    width: 100vw;
+    height: 100vh;
+
+    padding-top: var(--nav-height);
+}
+
+body.menu-expanded nav {
+    position: relative;
+}
+
+.menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-top: 6rem;
+
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+}
+
+.menu ul:nth-child(1) li a {
+    color: var(--brand-beige);
+    text-decoration: none;
+}
+
+.menu .button{
+    background: white;
+    padding: 1.6rem 4.0rem;
+    border-radius: 4.0rem;
+    display: inline-block;
+
+    margin-top: 4.8rem;
+    margin-bottom: 8rem;
+
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded nav button {
+    position: relative;
+    z-index: 100;
+}
+
+body.menu-expanded .logo path{
+    fill: white;
+
+}
+
+body.menu-expanded button path{
     stroke: white;
 }
