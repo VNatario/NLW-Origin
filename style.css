@@ -31,6 +31,7 @@ body {
     text-align: center;
 
     overflow: overlay;
+    /* Não conta com a largura dos scroll */
 }
 html, body {
     width: 100%;
@@ -199,14 +200,16 @@ nav button {
 }
 
 /* MENU EXPANDED */
+
 body.menu-expanded {
     overflow: hidden;
     /* overflow = o que esta transbordando */
+    /* Tirar o que esta "trasnbordando, ou seja tira os scrolls" */
 }
 
 body.menu-expanded > :not(nav) {
     display: none;
-    /* > ==> primeiro nível
+    /* > ==> filhos do primeiro nível
         Para o primeiro nivel todos vão sumir exceto nav
     */
 }
@@ -252,20 +255,21 @@ body.menu-expanded nav {
     line-height: 3.1rem;
 }
 
-.menu ul:nth-child(1) li a {
+.menu ul li a {
     color: var(--brand-beige);
     text-decoration: none;
 }
 
 .menu .button{
     background: white;
-    padding: 1.6rem 4.0rem;
     border-radius: 4.0rem;
+    
+    padding: 1.6rem 3.2rem;
     display: inline-block;
-
+    
     margin-top: 4.8rem;
     margin-bottom: 8rem;
-
+    
     font-weight: 700;
     font-size: 1.8rem;
     line-height: 2.3rem;
@@ -282,7 +286,7 @@ body.menu-expanded nav {
 }
 
 body.menu-expanded .logo,
-body.menu-expanded nav button {
+body.menu-expanded button {
     position: relative;
     z-index: 100;
 }

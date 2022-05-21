@@ -73,7 +73,9 @@
             <li><a href="#">Serviços</a></li>
             <li><a href="#">Sobre</a></li>
           </ul>
+
           <a class="button" href="#">Agende sua consulta</a>
+
           <ul class="social-links">
             <li>
               <a target="_blank" href="https://instagram.com">
@@ -108,6 +110,7 @@
                 </svg>
               </a>
             </li>
+
             <li>
               <a target="_blank" href="https://facebook.com">
                 <svg
@@ -127,6 +130,7 @@
                 </svg>
               </a>
             </li>
+
             <li>
               <a target="_blank" href="https://youtube.com"
                 ><svg
@@ -156,7 +160,12 @@
           </ul>
         </div>
 
-        <button onclick="openMenu()" class="open-menu">
+        <button
+          aria-expanded="false"
+          aria-label="Abrir menu"
+          onclick="openMenu()"
+          class="open-menu"
+        >
           <svg
             width="40"
             height="40"
@@ -187,7 +196,13 @@
             />
           </svg>
         </button>
-        <button onclick="closeMenu()" class="close-menu">
+
+        <button
+          aria-expanded="true"
+          aria-label="Fechar menu"
+          onclick="closeMenu()"
+          class="close-menu"
+        >
           <svg
             width="40"
             height="40"
